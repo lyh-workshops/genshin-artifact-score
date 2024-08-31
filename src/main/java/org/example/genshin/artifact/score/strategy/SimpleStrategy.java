@@ -1,4 +1,4 @@
-package org.example.genshin.artifact.score;
+package org.example.genshin.artifact.score.strategy;
 
 import org.example.genshin.artifact.score.entity.Artifact;
 import org.example.genshin.artifact.score.entity.Tag;

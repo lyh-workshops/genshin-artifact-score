@@ -1,11 +1,11 @@
-package org.example.genshin.artifact.score;
+package org.example.genshin.artifact.score.strategy;
 
 import org.example.genshin.artifact.score.entity.Artifact;
 
-public class Context {
+public class StrategyContext {
     private final IStrategy strategy;
 
-    public Context(IStrategy strategy) {
+    public StrategyContext(IStrategy strategy) {
         this.strategy = strategy;
     }
 

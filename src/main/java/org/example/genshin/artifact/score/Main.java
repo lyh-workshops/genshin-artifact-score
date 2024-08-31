@@ -4,6 +4,8 @@ import cn.hutool.core.io.file.FileReader;
 import com.alibaba.fastjson2.JSON;
 import org.example.genshin.artifact.score.entity.Artifact;
 import org.example.genshin.artifact.score.entity.MoNa;
+import org.example.genshin.artifact.score.strategy.SimpleStrategy;
+import org.example.genshin.artifact.score.strategy.StrategyContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +21,14 @@ public class Main {
         artifacts.addAll(data.getSand());
         artifacts.addAll(data.getCup());
         artifacts.addAll(data.getHead());
-        Context context = new Context(new SimpleStrategy());
+        StrategyContext strategyContext = new StrategyContext(new SimpleStrategy());
         artifacts.sort((o1, o2) -> {
-            double score1 = context.executeStrategy(o1);
-            double score2 = context.executeStrategy(o2);
+            double score1 = strategyContext.executeStrategy(o1);
+            double score2 = strategyContext.executeStrategy(o2);
             return Double.compare(score2, score1);
         });
         for (Artifact artifact : artifacts) {
-            System.out.printf("名称 = %s, 部位 = %s, 双暴得分 = %.2f, 装备者 = %s\n", artifact.getSetName(), artifact.getPosition(), context.executeStrategy(artifact), artifact.getEquip());
+            System.out.printf("名称 = %s, 部位 = %s, 双暴得分 = %.2f, 装备者 = %s\n", artifact.getSetName(), artifact.getPosition(), strategyContext.executeStrategy(artifact), artifact.getEquip());
         }
     }
 }
