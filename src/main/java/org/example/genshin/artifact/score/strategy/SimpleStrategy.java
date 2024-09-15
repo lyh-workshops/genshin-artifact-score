@@ -8,7 +8,7 @@ import java.util.List;
 public class SimpleStrategy implements IStrategy {
     @Override
     public double score(Artifact artifact) {
-        // 计算 20 级 5 ⭐ 圣遗物的双爆得分
+        // 计算 20 级 5 ⭐ 圣遗物的双暴得分
         // 暴击率 x 2 + 暴击伤害
         double score = 0.0;
         if (artifact == null) {
